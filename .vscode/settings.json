@@ -1,0 +1,4 @@
+{
+    "DockerRun.DisableAutoGenerateConfig": true,
+    "dotnet.unitTests.runSettingsPath": ""
+}
