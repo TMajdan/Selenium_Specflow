@@ -7,7 +7,7 @@ using SeleniumFramework.Src.Support.Internal;
 
 namespace Task_TMajdan.SeleniumFramework
 {
-    public class DriverBuilder
+    internal class DriverBuilder
     {
         private static readonly ThreadLocal<IWebDriver> Driver = new ThreadLocal<IWebDriver>();
 

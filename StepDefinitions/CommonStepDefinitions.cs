@@ -6,7 +6,7 @@ using Task_TMajdan.Src.PageObjects.MainMenu;
 namespace Task_TMajdan.StepDefinitions
 {
     [Binding]
-    public class CommonStepDefinitions
+    internal class CommonStepDefinitions
     {
         private readonly IWebDriver _driver;
         private ScenarioContext _scenarioContext;

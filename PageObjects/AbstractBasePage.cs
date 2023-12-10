@@ -3,7 +3,7 @@ using Task_TMajdan.SeleniumFramework;
 
 namespace Task_TMajdan.Src.PageObjects
 {
-    public abstract class AbstractBasePage
+    internal abstract class AbstractBasePage
     {
         protected readonly IWebDriver _driver;
 

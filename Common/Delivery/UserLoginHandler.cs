@@ -6,7 +6,7 @@ using TMajdanQATestTask.Src.Delivery;
 
 namespace Task_TMajdan.Src.Delivery
 {
-    public class UserLoginHandler
+    internal class UserLoginHandler
     {
         public static bool TryLoginWithApi(IWebDriver _driver, string baseUrl, string apiUrl)
         {

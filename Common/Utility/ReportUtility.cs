@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 
 namespace Task_TMajdan.Utility
 {
-    public class ReportUtility : ExtentReport
+    internal class ReportUtility : ExtentReport
     {
         public static void SaveTestsStepToReport(ScenarioContext scenarioContext, IWebDriver _driver, IObjectContainer _container)
         {
@@ -29,21 +29,14 @@ namespace Task_TMajdan.Utility
 
         private static void CreateNodeWithStatus(string stepType, string stepName)
         {
-            switch (stepType)
+            _scenario = stepType switch
             {
-                case "Given":
-                    _scenario.CreateNode<Given>(stepName);
-                    break;
-                case "When":
-                    _scenario.CreateNode<When>(stepName);
-                    break;
-                case "Then":
-                    _scenario.CreateNode<Then>(stepName);
-                    break;
-                case "And":
-                    _scenario.CreateNode<And>(stepName);
-                    break;
-            }
+                "Given" => _scenario.CreateNode<Given>(stepName),
+                "When" => _scenario.CreateNode<When>(stepName),
+                "Then" => _scenario.CreateNode<Then>(stepName),
+                "And" => _scenario.CreateNode<And>(stepName),
+                _ => throw new ArgumentException($"Invalid stepType: {stepType}"),
+            };
         }
 
         private static void CreateNodeWithStatusAndFailure(string stepType, string stepName, string errorMessage, MediaEntityModelProvider screenshot)
@@ -54,19 +47,14 @@ namespace Task_TMajdan.Utility
 
         private static ExtentTest GetNodeByType(string stepType, string stepName)
         {
-            switch (stepType)
+           return stepType switch
             {
-                case "Given":
-                    return _scenario.CreateNode<Given>(stepName);
-                case "When":
-                    return _scenario.CreateNode<When>(stepName);
-                case "Then":
-                    return _scenario.CreateNode<Then>(stepName);
-                case "And":
-                    return _scenario.CreateNode<And>(stepName);
-                default:
-                    throw new ArgumentException($"Invalid stepType: {stepType}");
-            }
+                "Given" => _scenario.CreateNode<Given>(stepName),
+                "When" => _scenario.CreateNode<When>(stepName),
+                "Then" => _scenario.CreateNode<Then>(stepName),
+                "And" => _scenario.CreateNode<And>(stepName),
+                _ => throw new ArgumentException($"Invalid stepType: {stepType}"),
+            };
         }
     }
 }

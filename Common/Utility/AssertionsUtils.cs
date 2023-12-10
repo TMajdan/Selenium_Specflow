@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 
 namespace Task_TMajdan.SeleniumFramework.Support
 {
-    public static class AssertionsUtils
+    internal static class AssertionsUtils
     {
         public static void AssertIsElementDisplayed(IWebElement element)
         {

@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class RestClientException : Exception
+    internal class RestClientException : Exception
     {
         public RestClientException()
         {

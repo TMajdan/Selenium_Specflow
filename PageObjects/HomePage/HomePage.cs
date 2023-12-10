@@ -5,7 +5,7 @@ using Task_TMajdan.Src.PageObjects;
 namespace Task_TMajdan.Src
 {
 
-    public class HomePage : AbstractBasePage
+    internal class HomePage : AbstractBasePage
     {
         private readonly By _homePageDashboards = By.Id("dashboard_columns");
 

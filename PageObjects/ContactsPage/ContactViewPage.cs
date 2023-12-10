@@ -1,4 +1,3 @@
-
 using OpenQA.Selenium;
 using Task_TMajadan.SeleniumFramework.Support;
 using Task_TMajdan.SeleniumFramework.Support;
@@ -6,7 +5,7 @@ using Task_TMajdan.Src.DomainModels.Users;
 
 namespace Task_TMajdan.Src.PageObjects.ContactsPage
 {
-    public class ContactViewPage : AbstractBasePage
+    internal class ContactViewPage : AbstractBasePage
     {
         private readonly By _summarySection = By.Id("le_section__summary");
         private readonly By _businessRoleSection = By.Id("le_section_main");

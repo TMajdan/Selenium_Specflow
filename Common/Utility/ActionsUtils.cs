@@ -6,7 +6,7 @@ using Task_TMajdan.SeleniumFramework.Support.Enums;
 
 namespace Task_TMajdan.SeleniumFramework.Support
 {
-    public static class ActionsUtils
+    internal static class ActionsUtils
     {
         private const int DefaultWaitTimeout = 5;
 

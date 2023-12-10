@@ -4,7 +4,7 @@ using Task_TMajdan.SeleniumFramework.Support;
 
 namespace Task_TMajdan.Src.PageObjects.ContactsPage
 {
-    public class ContactsViewPage : AbstractBasePage
+    internal class ContactsViewPage : AbstractBasePage
     {
 
         private readonly By _createNewContactButton = By.XPath("//button[contains(@id, '-create')]");

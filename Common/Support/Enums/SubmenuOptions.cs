@@ -1,6 +1,6 @@
 ﻿namespace Task_TMajdan.SeleniumFramework.Support.Enums
 {
-    public enum SubmenuTabs
+    internal enum SubmenuTabs
     {
         ActivityLog,
         Reports,

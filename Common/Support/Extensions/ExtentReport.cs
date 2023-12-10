@@ -12,7 +12,7 @@ namespace Task_TMajdan.Utility
         public static ExtentTest? _scenario;
 
         public static string dir = AppDomain.CurrentDomain.BaseDirectory;
-        public static string testResultPath = dir.Replace("bin\\Debug\\net6.0", "TestResults");
+        public static string testResultPath = dir.Replace(Path.Combine("bin","Debug","net6.0"), "TestResults");
 
         public static void ExtentReportInit()
         {

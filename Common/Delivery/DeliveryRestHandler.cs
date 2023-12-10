@@ -4,7 +4,7 @@ using Task_TMajdan.Src.Exceptions;
 
 namespace TMajdanQATestTask.Src.Delivery
 {
-    public class DeliveryRestHandler
+    internal class DeliveryRestHandler
     {
         public static RestResponse ExecuteRequest(Func<Task<RestResponse>> request)
         {

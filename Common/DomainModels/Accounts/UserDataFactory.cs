@@ -3,7 +3,7 @@ namespace Task_TMajdan.Src.DomainModels.Accounts
     using System.Collections.Generic;
     using Task_TMajdan.Src.DomainModels.Users;
 
-    public class UserDataFactory
+    internal class UserDataFactory
     {
         private static readonly Random random = new Random();
 

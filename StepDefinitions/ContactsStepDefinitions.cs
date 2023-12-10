@@ -7,7 +7,7 @@ using Task_TMajdan.Src.PageObjects.ContactsPage;
 namespace Task_TMajadan.StepDefinitions
 {
     [Binding]
-    public class ContactsSetpDefinitions
+    internal class ContactsSetpDefinitions
     {
         private readonly IWebDriver _driver;
         private ScenarioContext _scenarioContext;

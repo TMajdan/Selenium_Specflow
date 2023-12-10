@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class TestDataUtils
+    internal class TestDataUtils
     {
         private static readonly Random Rnd = new Random();
 

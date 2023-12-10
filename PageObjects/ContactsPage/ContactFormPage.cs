@@ -5,7 +5,7 @@ using Task_TMajdan.Src.DomainModels.Users;
 
 namespace Task_TMajdan.Src.PageObjects.ContactsPage
 {
-    public class ContactFormPage : AbstractBasePage
+    internal class ContactFormPage : AbstractBasePage
     {
         private readonly By _saveButton = By.Id("DetailForm_save");
         private readonly By _firstNameInput = By.Id("DetailFormfirst_name-input");

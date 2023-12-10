@@ -4,7 +4,7 @@ namespace TMajdanQATestTask
     using System.Threading;
     using Task_TMajdan.Src.DomainModels.Users;
 
-    public static class Globals
+    internal static class Globals
     {
         private static ThreadLocal<List<UserData>> users = new ThreadLocal<List<UserData>>();
 

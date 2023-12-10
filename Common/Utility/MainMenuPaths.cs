@@ -2,7 +2,7 @@
 
 namespace Task_TMajdan.SeleniumFramework
 {
-    public class MainMenuPaths
+    internal class MainMenuPaths
     {
         public MainMenuTabs MainMenuTab { get; set; }
         public SubmenuTabs? SubmenuTab { get; set; }

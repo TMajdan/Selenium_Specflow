@@ -2,7 +2,7 @@ using System.Reflection;
 
 namespace Task_TMajdan.Delivery.Model
 {
-    public class LoginRequestData
+    internal class LoginRequestData
     {
         private readonly int resWidth;
         private readonly int resHeight;

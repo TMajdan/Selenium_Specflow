@@ -4,7 +4,7 @@
     using Task_TMajdan.SeleniumFramework.Support.Enums;
     using Task_TMajdan.Src.Support;
 
-    public static class UsersLists
+    internal static class UsersLists
     {
         public static List<UserData> Users = new List<UserData>()
         {

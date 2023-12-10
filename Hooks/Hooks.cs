@@ -8,7 +8,7 @@ using Task_TMajdan.Utility;
 namespace Task_TMajdan.Hooks
 {
     [Binding]
-    public class Hooks : ExtentReport
+    internal class Hooks : ExtentReport
     {
         private readonly IObjectContainer _container;
         private readonly ScenarioContext _scenarioContext;

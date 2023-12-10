@@ -2,7 +2,7 @@ using OpenQA.Selenium;
 
 namespace Task_TMajadan.SeleniumFramework.Support
 {
-    public static class ElementsUtils
+    internal static class ElementsUtils
     {
         public static bool IsElementPresent(IWebElement element)
         {

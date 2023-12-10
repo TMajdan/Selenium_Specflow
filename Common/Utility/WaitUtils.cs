@@ -4,9 +4,8 @@ using SeleniumExtras.WaitHelpers;
 
 namespace Task_TMajdan.SeleniumFramework
 {
-    public class WaitUtils
+    internal class WaitUtils
     {
-
         public static void WaitForUrlContains(IWebDriver driver, string partialUrl)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));

@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-public class AppConfig
+internal class AppConfig
 {
     private static IConfigurationRoot _configuration;
 
@@ -9,7 +9,7 @@ public class AppConfig
         try
         {
             var baseDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
-            var projectDirectory = baseDirectory.Replace(@"\bin\Debug\net6.0\", "");
+            var projectDirectory = baseDirectory.Replace(Path.Combine("bin","Debug","net6.0"), "");
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(projectDirectory)
