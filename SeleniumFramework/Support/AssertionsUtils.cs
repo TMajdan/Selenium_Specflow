@@ -1,12 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using NUnit.Framework;
+using OpenQA.Selenium;
 
 namespace Task_TMajdan.SeleniumFramework.Support
 {
-    public class AssertionsUtils
+    public static class AssertionsUtils
     {
-        
+        public static void AssertIsElementDisplayed(IWebElement element)
+        {
+            Assert.IsTrue(element.Displayed, $"Element {element} is not displayed");
+        }
     }
 }

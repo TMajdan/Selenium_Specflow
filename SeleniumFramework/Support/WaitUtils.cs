@@ -30,6 +30,12 @@ namespace Task_TMajdan.SeleniumFramework
             wait.Until(ExpectedConditions.ElementToBeClickable(locator));
         }
 
+        public static void WaitForElementToBeClickable(IWebDriver driver, IWebElement element)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            wait.Until(ExpectedConditions.ElementToBeClickable(element));
+        }
+
         public static void WaitForElementToBeSelected(IWebDriver driver, By locator)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));

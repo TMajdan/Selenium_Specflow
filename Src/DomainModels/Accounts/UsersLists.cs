@@ -12,7 +12,6 @@
             {
                 FirstName = "TOMASZ",
                 LastName = "M",
-                Salutations = "Mr",
                 Email = "test@test.test",
                 Phone = TestDataUtils.GenerateRandomNumber(999999999).ToString(),
                 Website = "www.test.test",
@@ -24,7 +23,6 @@
             {
                 FirstName = "Anna",
                 LastName = "Kowalska",
-                Salutations = "Ms",
                 Email = "anna.kowalska@test.test",
                 Phone = TestDataUtils.GenerateRandomNumber(999999999).ToString(),
                 Website = "www.annakowalska.test",

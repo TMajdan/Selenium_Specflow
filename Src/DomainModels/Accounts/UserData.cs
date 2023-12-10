@@ -19,7 +19,7 @@ namespace Task_TMajdan.Src.DomainModels.Users
 
         public string? Website { get; set; }
 
-        public List<Category>? Category { get; set; }
+        public List<Category> Category { get; set; }
 
         public Role Role { get; set; }
 

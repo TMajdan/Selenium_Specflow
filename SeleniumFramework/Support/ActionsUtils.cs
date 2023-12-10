@@ -1,6 +1,8 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using Task_TMajadan.SeleniumFramework.Support;
+using Task_TMajdan.SeleniumFramework.Support.Enums;
 
 namespace Task_TMajdan.SeleniumFramework.Support
 {
@@ -22,6 +24,22 @@ namespace Task_TMajdan.SeleniumFramework.Support
             try
             {
                 wait.Until(x => inputElement.GetAttribute("value") == value);
+            }
+            catch (WebDriverTimeoutException)
+            {
+                throw new WebDriverTimeoutException("Input value was not set to: " + value);
+            }
+        }
+
+        public static void SendEnumKeys(this IWebDriver driver, IWebElement inputElement, Enum value, int waitTimeout = 5)
+        {
+            SendKeys(driver, inputElement, value.ToString(), waitTimeout);
+
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(waitTimeout));
+
+            try
+            {
+                wait.Until(x => inputElement.GetAttribute("value") == value.ToString());
             }
             catch (WebDriverTimeoutException)
             {
@@ -64,42 +82,45 @@ namespace Task_TMajdan.SeleniumFramework.Support
             return childElements;
         }
 
-        public static void SearchOnList(IWebDriver driver, IWebElement searchInput, string value)
+        public static void SelectElementFromList(IWebDriver driver, IWebElement searchInput, Category value)
         {
-            driver.SendKeys(searchInput, value);
+            ClickElement(searchInput);
+            driver.SendEnumKeys(searchInput, value);
+
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//li[contains(text(),'" + value + "')]")));
-            var searchResult = driver.FindElement(By.XPath("//li[contains(text(),'" + value + "')]"));
+            var searchResult = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("DetailFormcategories-input-search-list")));
+
             ClickElement(searchResult);
         }
 
-        public static IWebElement FindElement(IWebDriver driver, By by, int timeout = 5)
+        public static void SelectOptionsFromPopup(IWebDriver driver, IWebElement searchInput, List<Category> values)
         {
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
-            wait.Until(ExpectedConditions.ElementExists(by));
-            return driver.FindElement(by);
-        }
-
-        public static void AcceptAlert(IWebDriver driver)
-        {
-            var alert = driver.SwitchTo().Alert();
-            alert.Accept();
-        }
-
-        public static void SelectOptionFromPopup(IWebDriver driver, IWebElement searchInput, string value)
-        {
-            var popupLocation = By.XPath($"//div[@class='select2-result-label' and contains(text(),'{value}')]");
-            var popupListLocation = By.XPath("//ul[@class='select2-results']");
+            By popupSearchLocation = By.XPath("//div[contains(@id, 'input-search') and contains(@class, 'popup-default')]");
+            By popupListLocation = By.XPath(".//div[contains(@class, 'option-cell')]");
+            By popupInputBody = By.XPath(".//div[@id='DetailFormcategories-input-search-text']//input");
 
             ClickElement(searchInput);
+
+            WaitUtils.WaitForElementToBeVisible(driver, popupSearchLocation);
             WaitUtils.WaitForElementToBeVisible(driver, popupListLocation);
 
-            var popListItem = FindChildElements(FindElement(driver, popupLocation), driver, popupListLocation)
-                .Find(x => x.Text == value);
+            IWebElement currentInputElement = driver.FindElement(popupInputBody);
 
-            ClickElement(popListItem);
+            foreach (var value in values)
+            {
+                if (ElementsUtils.IsElementPresent(currentInputElement))
+                {
+                    SelectElementFromList(driver, currentInputElement, value);
+                }
+                else
+                {
+                    SelectElementFromList(driver, driver.FindElement(popupSearchLocation), value);
+                }
+            }
 
-            if (value == "Delete") AcceptAlert(driver);
+            WaitUtils.WaitForElementToBeInvisible(driver, popupSearchLocation);
+            WaitUtils.WaitForElementToBeInvisible(driver, popupListLocation);
         }
+
     }
 }

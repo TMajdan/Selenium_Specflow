@@ -10,7 +10,6 @@ namespace Task_TMajdan.StepDefinitions
     {
         private readonly IWebDriver _driver;
         private ScenarioContext _scenarioContext;
-
         private readonly MainMenu _mainMenu;
 
         public CommonStepDefinitions(IWebDriver driver, ScenarioContext scenarioContext)
@@ -26,6 +25,12 @@ namespace Task_TMajdan.StepDefinitions
             MainMenuPaths menuPath = new MainMenuPaths(mainMenuTab, submenuOption);
 
             _mainMenu.NavigateTo(menuPath);
+        }
+
+        [Given(@"User open the browser")]
+        public void OpenBrowser()
+        {
+            return;
         }
     }
 }

@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Task_TMajdan.Features
+namespace Task_TMajadan.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,15 +20,13 @@ namespace Task_TMajdan.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Verify youtube search feature 2")]
-    [NUnit.Framework.CategoryAttribute("Browser:Edge")]
-    public partial class VerifyYoutubeSearchFeature2Feature
+    [NUnit.Framework.DescriptionAttribute("Verify test page")]
+    public partial class VerifyTestPageFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-        private string[] _featureTags = new string[] {
-                "Browser:Edge"};
+        private string[] _featureTags = ((string[])(null));
         
 #line 1 "Feature2.feature"
 #line hidden
@@ -37,8 +35,7 @@ namespace Task_TMajdan.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Verify youtube search feature 2", "Search in the youtube", ProgrammingLanguage.CSharp, new string[] {
-                        "Browser:Edge"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Verify test page", "Search in the youtube", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -77,15 +74,15 @@ namespace Task_TMajdan.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Search for Testers Talk")]
-        [NUnit.Framework.CategoryAttribute("Browser:Edge")]
-        public virtual void SearchForTestersTalk()
+        [NUnit.Framework.DescriptionAttribute("Test Scenario")]
+        [NUnit.Framework.CategoryAttribute("Browser:Chrome")]
+        public virtual void TestScenario()
         {
             string[] tagsOfScenario = new string[] {
-                    "Browser:Edge"};
+                    "Browser:Chrome"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for Testers Talk", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test Scenario", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -105,14 +102,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 8
- testRunner.Given("Open the browser 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 7
+ testRunner.Given("User open the browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 9
+#line 8
  testRunner.When("User navigates to \'Sales And Marketing\' menu item and \'Contacts\' submenu item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
+#line 9
+ testRunner.When("User click \'New contact\' from \'Contacts\' page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
 #line 10
- testRunner.Then("Search for the Testers Talk 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("User enters new random contact details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }
             this.ScenarioCleanup();
