@@ -30,7 +30,7 @@ namespace Task_TMajdan.StepDefinitions
         [Given(@"User is logged in and on the main page")]
         public void UserIsLoggedInAndOnTheMainPage()
         {
-            return;
+            _mainMenu.CheckIfUserIsLoggedIn();
         }
     }
 }

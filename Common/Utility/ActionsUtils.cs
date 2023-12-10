@@ -69,7 +69,7 @@ namespace Task_TMajdan.SeleniumFramework.Support
 
         public static void SelectElementSearchablePopupFromList(IWebDriver driver, IWebElement searchInput, string value)
         {
-            
+
             driver.SendKeys(searchInput, value);
 
             IWebElement searchResult = driver.FindElement(By.Id("DetailFormcategories-input-search-list"));
@@ -98,6 +98,58 @@ namespace Task_TMajdan.SeleniumFramework.Support
             {
                 throw new NoSuchElementException($"Element with value '{value}' not found in the list.");
             }
+        }
+
+        public static void CheckForTextInTable(IWebDriver driver, string searchText)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+
+            IWebElement tableBody = wait.Until(ExpectedConditions.ElementExists(By.XPath("//tbody")));
+            IList<IWebElement> rows = tableBody.FindElements(By.TagName("tr"));
+
+            if (rows.Count < 1)
+            {
+                throw new Exception("Table contains no rows.");
+            }
+
+            foreach (var row in rows)
+            {
+                IList<IWebElement> cells = row.FindElements(By.TagName("td"));
+
+                foreach (var cell in cells)
+                {
+                    if (cell.Text.Contains(searchText))
+                    {
+                        return;
+                    }
+                }
+            }
+
+            throw new Exception($"Text '{searchText}' not found in the table.");
+        }
+
+        public static List<IWebElement> FindSearchableListByText(IWebDriver driver, IWebElement parentElement, string searchText, bool throwException = true)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            List<IWebElement>? elements = null;
+
+            try
+            {
+                elements = wait.Until(x =>
+                {
+                    var searchResults = parentElement.FindElements(By.XPath($"//div[contains(@class, 'single') and contains(., '{searchText}')]"));
+                    return searchResults.Any() ? searchResults.ToList() : null;
+                });
+            }
+            catch (NotFoundException ex)
+            {
+                if (throwException)
+                {
+                    throw new NotFoundException($"Element with text '{searchText}' not found.", ex);
+                }
+            }
+
+            return elements;
         }
     }
 }

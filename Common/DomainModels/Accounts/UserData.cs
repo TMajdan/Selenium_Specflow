@@ -7,15 +7,15 @@ namespace Task_TMajdan.Src.DomainModels.Users
      */
     internal class UserData
     {
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
-        public string Salutations { get; set; }
+        public string? Salutations { get; set; }
 
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
 
         public List<Category> Category { get; set; }
 

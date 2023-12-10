@@ -19,7 +19,7 @@ namespace Task_TMajdan.SeleniumFramework
         }
         public static void WaitForElementToBeVisible(IWebDriver driver, By locator)
         {
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.ElementIsVisible(locator));
         }
 

@@ -72,5 +72,15 @@ namespace Task_TMajdan.Src.PageObjects.MainMenu
             WaitUtils.WaitForElementToBeClickable(_driver, elementLocator);
             ActionsUtils.ClickElement(_driver.FindElement(elementLocator));
         }
+
+        public void CheckIfUserIsLoggedIn()
+        {
+            WaitUtils.WaitForElementToBeVisible(_driver, _todaysActivities);
+            WaitUtils.WaitForElementToBeVisible(_driver, _salesAndMarketing);
+            WaitUtils.WaitForElementToBeVisible(_driver, _orderManagement);
+            WaitUtils.WaitForElementToBeVisible(_driver, _projectManagement);
+            WaitUtils.WaitForElementToBeVisible(_driver, _customerService);
+            WaitUtils.WaitForElementToBeVisible(_driver, _reportsAndSettings);
+        }
     }
 }
