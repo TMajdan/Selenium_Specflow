@@ -15,6 +15,7 @@ namespace Task_TMajdan.Hooks
         private IWebDriver? _driver;
         private string baseUrl = AppConfig.GetAppSetting("baseUrl");
         private string apiUrl = AppConfig.GetAppSetting("apiUrl");
+
         public Hooks(IObjectContainer container, ScenarioContext ScenarioContext)
         {
             _container = container;
