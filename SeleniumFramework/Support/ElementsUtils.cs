@@ -2,7 +2,7 @@ using OpenQA.Selenium;
 
 namespace Task_TMajadan.SeleniumFramework.Support
 {
-    public class ElementsUtils
+    public static class ElementsUtils
     {
         public static bool IsElementPresent(IWebElement element)
         {
@@ -15,5 +15,8 @@ namespace Task_TMajadan.SeleniumFramework.Support
                 return false;
             }
         }
+
+        public static string GetInnerText(IWebElement element) => element.GetAttribute("innerText");
+
     }
 }

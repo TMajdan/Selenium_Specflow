@@ -48,5 +48,18 @@ namespace Task_TMajdan.SeleniumFramework
             wait.Until(ExpectedConditions.InvisibilityOfElementLocated(locator));
         }
 
+        public static void WaitUntilAttributeEquals(IWebDriver driver, IWebElement element, string attributeName, string expectedValue, int waitTimeout)
+        {
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(waitTimeout));
+
+            try
+            {
+                wait.Until(x => element.GetAttribute(attributeName) == expectedValue);
+            }
+            catch (WebDriverTimeoutException)
+            {
+                throw new WebDriverTimeoutException($"Attribute '{attributeName}' was not set to: {expectedValue}");
+            }
+        }
     }
 }

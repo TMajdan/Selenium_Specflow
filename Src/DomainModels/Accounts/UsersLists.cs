@@ -14,7 +14,6 @@
                 LastName = "M",
                 Email = "test@test.test",
                 Phone = TestDataUtils.GenerateRandomNumber(999999999).ToString(),
-                Website = "www.test.test",
                 Role = Role.CEO,
                 Category = new List<Category> { Category.Customers, Category.Suppliers },
             },
@@ -25,7 +24,6 @@
                 LastName = "Kowalska",
                 Email = "anna.kowalska@test.test",
                 Phone = TestDataUtils.GenerateRandomNumber(999999999).ToString(),
-                Website = "www.annakowalska.test",
                 Role = Role.Admin,
                 Category = new List<Category> { Category.Customers, Category.Suppliers },
             }

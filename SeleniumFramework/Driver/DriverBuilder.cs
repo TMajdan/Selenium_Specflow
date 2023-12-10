@@ -65,6 +65,7 @@ namespace Task_TMajdan.SeleniumFramework
             }
 
         }
+
         public static IWebDriver? GetDriver()
             => Driver?.Value;
     }

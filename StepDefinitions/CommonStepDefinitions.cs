@@ -27,8 +27,8 @@ namespace Task_TMajdan.StepDefinitions
             _mainMenu.NavigateTo(menuPath);
         }
 
-        [Given(@"User open the browser")]
-        public void OpenBrowser()
+        [Given(@"User is logged in and on the main page")]
+        public void UserIsLoggedInAndOnTheMainPage()
         {
             return;
         }

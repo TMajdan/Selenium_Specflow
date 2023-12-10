@@ -1,3 +1,4 @@
+using AventStack.ExtentReports.Gherkin.Model;
 using OpenQA.Selenium;
 using Task_TMajdan.Src.DomainModels.Accounts;
 using Task_TMajdan.Src.DomainModels.Users;
@@ -34,6 +35,21 @@ namespace Task_TMajadan.StepDefinitions
             _contactsFormPage = new ContactFormPage(_driver);
             var user = _scenarioContext.Get<UserData>("user");
             _contactsFormPage.ProvideNewUserContactDetails(user);
+        }
+
+        [When(@"User click save button")]
+        public void WhenUserClickSaveButton()
+        {
+            _contactsFormPage.SaveButton.Click();
+        }
+
+        [Then(@"User should see saved contact details")]
+        public void ThenUserShouldSeeSavedContactDetails()
+        {
+            var user = _scenarioContext.Get<UserData>("user");
+            var contactViewPage = new ContactViewPage(_driver);
+            contactViewPage.VerifySummarySection(user);
+            contactViewPage.VerifyBusinessRoleSection(user);
         }
     }
 }

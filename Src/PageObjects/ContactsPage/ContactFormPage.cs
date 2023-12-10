@@ -48,7 +48,9 @@ namespace Task_TMajdan.Src.PageObjects.ContactsPage
         public void ProvideNewUserContactDetails(UserData user)
         {
             ProvideFirstAndLastName(user);
+            ProvideEmailAndPhone(user);
             SetMultipleCategoryFromPopupMenu(user);
+            SetBusinessRole(user);
         }
 
         public void ProvideFirstAndLastName(UserData user)
@@ -57,11 +59,21 @@ namespace Task_TMajdan.Src.PageObjects.ContactsPage
             ActionsUtils.SendKeys(_driver, LastNameInput, user.LastName);
         }
 
-        public void SetMultipleCategoryFromPopupMenu(UserData user)
+        public void ProvideEmailAndPhone(UserData user)
         {
-            ActionsUtils.SelectOptionsFromPopup(_driver, CategoryDropdown, user.Category);
+            ActionsUtils.SendKeys(_driver, EmailInput, user.Email);
+            ActionsUtils.SendKeys(_driver, PhoneInput, user.Phone);
         }
 
+        public void SetMultipleCategoryFromPopupMenu(UserData user)
+        {
+            ActionsUtils.SelectOptionsFromSearchListPopup(_driver, CategoryDropdown, user.Category);
+        }
+
+        public void SetBusinessRole(UserData user)
+        {
+            ActionsUtils.SelectOptionFromListPopup(_driver, BusinessDropdown, user.Role);
+        }
 
     }
 }

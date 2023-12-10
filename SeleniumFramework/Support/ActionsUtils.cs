@@ -8,43 +8,18 @@ namespace Task_TMajdan.SeleniumFramework.Support
 {
     public static class ActionsUtils
     {
+        private const int DefaultWaitTimeout = 5;
 
         public static void ClickElement(IWebElement element)
         {
             element.Click();
         }
 
-        public static void SendKeys(this IWebDriver driver, IWebElement inputElement, string value, int waitTimeout = 5)
+        public static void SendKeys(this IWebDriver driver, IWebElement inputElement, string value, int waitTimeout = DefaultWaitTimeout)
         {
             ClearInputValue(inputElement);
             inputElement.SendKeys(value);
-
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(waitTimeout));
-
-            try
-            {
-                wait.Until(x => inputElement.GetAttribute("value") == value);
-            }
-            catch (WebDriverTimeoutException)
-            {
-                throw new WebDriverTimeoutException("Input value was not set to: " + value);
-            }
-        }
-
-        public static void SendEnumKeys(this IWebDriver driver, IWebElement inputElement, Enum value, int waitTimeout = 5)
-        {
-            SendKeys(driver, inputElement, value.ToString(), waitTimeout);
-
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(waitTimeout));
-
-            try
-            {
-                wait.Until(x => inputElement.GetAttribute("value") == value.ToString());
-            }
-            catch (WebDriverTimeoutException)
-            {
-                throw new WebDriverTimeoutException("Input value was not set to: " + value);
-            }
+            WaitUtils.WaitUntilAttributeEquals(driver, inputElement, "value", value, waitTimeout);
         }
 
         public static void ClearInputValue(IWebElement inputElement)
@@ -65,62 +40,64 @@ namespace Task_TMajdan.SeleniumFramework.Support
             return checkboxElement.Selected;
         }
 
-        public static List<IWebElement> GetTableCells(IWebElement tableElement)
-        {
-            return tableElement.FindElements(By.TagName("td")).ToList();
-        }
-
-        public static List<IWebElement> FindChildElements(IWebElement parentElement, IWebDriver driver, By by, int timeout = 5)
-        {
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
-
-            List<IWebElement> childElements = new List<IWebElement>();
-
-            wait.Until(ExpectedConditions.ElementExists(by));
-            childElements.AddRange(parentElement.FindElements(by));
-
-            return childElements;
-        }
-
-        public static void SelectElementFromList(IWebDriver driver, IWebElement searchInput, Category value)
-        {
-            ClickElement(searchInput);
-            driver.SendEnumKeys(searchInput, value);
-
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            var searchResult = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("DetailFormcategories-input-search-list")));
-
-            ClickElement(searchResult);
-        }
-
-        public static void SelectOptionsFromPopup(IWebDriver driver, IWebElement searchInput, List<Category> values)
+        public static void SelectOptionsFromSearchListPopup(IWebDriver driver, IWebElement searchInput, List<Category> values)
         {
             By popupSearchLocation = By.XPath("//div[contains(@id, 'input-search') and contains(@class, 'popup-default')]");
-            By popupListLocation = By.XPath(".//div[contains(@class, 'option-cell')]");
             By popupInputBody = By.XPath(".//div[@id='DetailFormcategories-input-search-text']//input");
+            By newPopupInput = By.XPath("//*[@id='DetailFormcategories-input']");
 
             ClickElement(searchInput);
-
-            WaitUtils.WaitForElementToBeVisible(driver, popupSearchLocation);
-            WaitUtils.WaitForElementToBeVisible(driver, popupListLocation);
-
             IWebElement currentInputElement = driver.FindElement(popupInputBody);
 
             foreach (var value in values)
             {
-                if (ElementsUtils.IsElementPresent(currentInputElement))
+                if (!ElementsUtils.IsElementPresent(currentInputElement))
                 {
-                    SelectElementFromList(driver, currentInputElement, value);
+                    WaitUtils.WaitForElementToBeVisible(driver, newPopupInput);
+                    ClickElement(driver.FindElement(newPopupInput));
                 }
-                else
-                {
-                    SelectElementFromList(driver, driver.FindElement(popupSearchLocation), value);
-                }
+                SelectElementSearchablePopupFromList(driver, currentInputElement, value.ToString());
             }
 
             WaitUtils.WaitForElementToBeInvisible(driver, popupSearchLocation);
-            WaitUtils.WaitForElementToBeInvisible(driver, popupListLocation);
         }
 
+        public static void SelectOptionFromListPopup(IWebDriver driver, IWebElement element, Role value)
+        {
+            SelectElementFromPopupList(driver, element, value.ToString());
+        }
+
+        public static void SelectElementSearchablePopupFromList(IWebDriver driver, IWebElement searchInput, string value)
+        {
+            
+            driver.SendKeys(searchInput, value);
+
+            IWebElement searchResult = driver.FindElement(By.Id("DetailFormcategories-input-search-list"));
+            ClickElement(searchResult);
+        }
+
+        public static void SelectElementFromPopupList(IWebDriver driver, IWebElement searchInput, string value)
+        {
+            ClickElement(searchInput);
+            By dropdownSelector = By.Id("DetailFormbusiness_role-input-popup");
+            By listItemSelector = By.XPath(".//div[contains(@class, 'option-cell')]");
+
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            var dropdown = wait.Until(ExpectedConditions.ElementIsVisible(dropdownSelector));
+            var listItems = dropdown.FindElements(listItemSelector);
+
+            List<IWebElement> matchingItems = listItems
+                .Where(item => item.Text == value.ToString())
+                .ToList();
+
+            if (matchingItems.Count > 0)
+            {
+                ClickElement(matchingItems.First());
+            }
+            else
+            {
+                throw new NoSuchElementException($"Element with value '{value}' not found in the list.");
+            }
+        }
     }
 }

@@ -9,5 +9,10 @@ namespace Task_TMajdan.SeleniumFramework.Support
         {
             Assert.IsTrue(element.Displayed, $"Element {element} is not displayed");
         }
+
+        public static void AssertIsElementContains(string actualText, string expectedText)
+        {
+            Assert.IsTrue(actualText.Contains(expectedText), $"Expected: '{expectedText}', Actual: '{actualText}'");
+        }
     }
 }
