@@ -1,8 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
-using Task_TMajadan.Common.Driver;
-using Task_TMajadan.SeleniumFramework.Support;
+using Task_TMajdan.Common.Driver;
 using Task_TMajdan.SeleniumFramework.Support.Enums;
 
 namespace Task_TMajdan.SeleniumFramework.Support

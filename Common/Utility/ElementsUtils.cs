@@ -1,6 +1,6 @@
 using OpenQA.Selenium;
 
-namespace Task_TMajadan.SeleniumFramework.Support
+namespace Task_TMajdan.SeleniumFramework.Support
 {
     internal static class ElementsUtils
     {

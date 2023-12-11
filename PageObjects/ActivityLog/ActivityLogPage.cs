@@ -1,9 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using OpenQA.Selenium;
 using Task_TMajdan.SeleniumFramework;
 using Task_TMajdan.SeleniumFramework.Support;
 using Task_TMajdan.Src.PageObjects;
 
-namespace Task_TMajadan.PageObjects
+namespace Task_TMajdan.PageObjects
 {
     internal class ActivityLogPage : AbstractBasePage
     {

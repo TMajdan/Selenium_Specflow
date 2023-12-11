@@ -1,5 +1,7 @@
+using System;
+using System.Threading.Tasks;
 using RestSharp;
-using Task_TMajadan.Common.Driver;
+using Task_TMajdan.Common.Driver;
 using Task_TMajdan.Src.Exceptions;
 
 namespace TMajdanQATestTask.Src.Delivery

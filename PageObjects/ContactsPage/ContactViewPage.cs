@@ -1,5 +1,5 @@
 using OpenQA.Selenium;
-using Task_TMajadan.SeleniumFramework.Support;
+using Task_TMajdan.SeleniumFramework.Support;
 using Task_TMajdan.SeleniumFramework.Support;
 using Task_TMajdan.Src.DomainModels.Users;
 

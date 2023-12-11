@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tmajdan\\source\\repos\\Task_TMajadan\\Task_TMajadan.csproj": {}
+    "C:\\Users\\tmajdan\\test\\Task_TMajdan\\Task_TMajadan.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tmajdan\\source\\repos\\Task_TMajadan\\Task_TMajadan.csproj": {
+    "C:\\Users\\tmajdan\\test\\Task_TMajdan\\Task_TMajadan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tmajdan\\source\\repos\\Task_TMajadan\\Task_TMajadan.csproj",
+        "projectUniqueName": "C:\\Users\\tmajdan\\test\\Task_TMajdan\\Task_TMajadan.csproj",
         "projectName": "Task_TMajadan",
-        "projectPath": "C:\\Users\\tmajdan\\source\\repos\\Task_TMajadan\\Task_TMajadan.csproj",
+        "projectPath": "C:\\Users\\tmajdan\\test\\Task_TMajdan\\Task_TMajadan.csproj",
         "packagesPath": "C:\\Users\\tmajdan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tmajdan\\source\\repos\\Task_TMajadan\\obj\\",
+        "outputPath": "C:\\Users\\tmajdan\\test\\Task_TMajdan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tmajdan\\AppData\\Roaming\\NuGet\\NuGet.Config",

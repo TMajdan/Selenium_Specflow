@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UR7lPj5JT0nifoJVs8uok/ozUthS1uys4avvw6rLWd0NFisiHnrc1y+Tie0fYX1oBhMIJcL9B3N75PCbyAhmNA==",
+  "dgSpecHash": "Uycg/nRkTDXEG7DFSlCknGccClJYSoWa4ay7KyYLu9bCSjjtxdmSXfwyHaHUMXkxd03VXYOBIOzEznVbnPgkRA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tmajdan\\source\\repos\\Task_TMajadan\\Task_TMajadan.csproj",
+  "projectFilePath": "C:\\Users\\tmajdan\\test\\Task_TMajdan\\Task_TMajadan.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tmajdan\\.nuget\\packages\\anglesharp\\1.0.4\\anglesharp.1.0.4.nupkg.sha512",
     "C:\\Users\\tmajdan\\.nuget\\packages\\bodi\\1.5.0\\bodi.1.5.0.nupkg.sha512",
