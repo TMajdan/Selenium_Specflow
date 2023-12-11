@@ -1,6 +1,5 @@
 using OpenQA.Selenium;
 using Task_TMajdan.SeleniumFramework.Support;
-using Task_TMajdan.SeleniumFramework.Support;
 using Task_TMajdan.Src.DomainModels.Users;
 
 namespace Task_TMajdan.Src.PageObjects.ContactsPage

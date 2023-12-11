@@ -1,4 +1,5 @@
-﻿using Task_TMajdan.SeleniumFramework.Support.Enums;
+﻿using System.Collections.Generic;
+using Task_TMajdan.SeleniumFramework.Support.Enums;
 
 namespace Task_TMajdan.Src.DomainModels.Users
 {

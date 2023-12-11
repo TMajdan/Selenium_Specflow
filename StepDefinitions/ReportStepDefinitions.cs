@@ -1,8 +1,6 @@
 using AventStack.ExtentReports.Gherkin.Model;
 using OpenQA.Selenium;
 using Task_TMajdan.PageObjects.ReportsPage;
-using Task_TMajdan.Src.DomainModels.Accounts;
-using Task_TMajdan.Src.DomainModels.Users;
 
 namespace Task_TMajdan.StepDefinitions
 {

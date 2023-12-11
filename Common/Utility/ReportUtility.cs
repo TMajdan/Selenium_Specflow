@@ -1,5 +1,6 @@
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
 
+using System;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Gherkin.Model;
 using BoDi;
