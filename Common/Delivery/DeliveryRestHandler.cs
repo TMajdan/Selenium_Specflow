@@ -1,5 +1,5 @@
-
 using RestSharp;
+using Task_TMajadan.Common.Driver;
 using Task_TMajdan.Src.Exceptions;
 
 namespace TMajdanQATestTask.Src.Delivery
@@ -9,7 +9,7 @@ namespace TMajdanQATestTask.Src.Delivery
         public static RestResponse ExecuteRequest(Func<Task<RestResponse>> request)
         {
             Task<RestResponse> response = request.Invoke();
-            response.Wait(TimeSpan.FromMinutes(1));
+            response.Wait(TimeSpan.FromMinutes(Timeouts.ShortTimeout));
             RestResponse result = response.Result;
 
             if (!result.IsSuccessful)

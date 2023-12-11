@@ -3,7 +3,7 @@
     using System;
     using System.Linq;
 
-    public static class ObjectExtensions
+    internal static class ObjectExtensions
     {
         public static void IgnoringFailure(
          Action action,

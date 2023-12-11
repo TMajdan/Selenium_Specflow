@@ -34,21 +34,13 @@ namespace Task_TMajdan.Hooks
             var browserTags = scenarioContext.ScenarioInfo.Tags[0];
             var browserValue = browserTags.Split(':')[1].Trim();
 
-            switch (browserValue)
+            _driver = browserValue switch
             {
-                case "Chrome":
-                    _driver = DriverBuilder.SetupChromeDriver();
-                    break;
-                case "Edge":
-                    _driver = DriverBuilder.SetupEdgeDriver();
-                    break;
-                case "Firefox":
-                    _driver = DriverBuilder.SetupFirefoxDriver();
-                    break;
-                default:
-                    _driver = DriverBuilder.SetupChromeDriver();
-                    break;
-            }
+                "Chrome" => DriverBuilder.SetupChromeDriver(),
+                "Edge" => DriverBuilder.SetupEdgeDriver(),
+                "Firefox" => DriverBuilder.SetupFirefoxDriver(),
+                _ => DriverBuilder.SetupChromeDriver(),
+            };
 
             UserLoginHandler.TryLoginWithApi(_driver, baseUrl, apiUrl);
 

@@ -109,7 +109,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("User navigates to \'Sales And Marketing\' menu item and \'Contacts\' submenu item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
- testRunner.When("User click \'New contact\' from \'Contacts\' page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("User click \'New contact\' from \'Contacts\' page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
  testRunner.Then("User enters new random contact details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -160,7 +160,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("User navigates to \'Reports And Settings\' menu item and \'Reports\' submenu item", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 26
- testRunner.When("User Search \'Project Profitability\' report and open it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("User Search \'Project Profitability\' report and open it", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 27
  testRunner.When("User run report", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -210,7 +210,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 38
- testRunner.When("User selects \'3\' rows in the Activity Log table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("User selects \'3\' rows in the Activity Log table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 39
  testRunner.When("User click Action then \'Delete\' button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

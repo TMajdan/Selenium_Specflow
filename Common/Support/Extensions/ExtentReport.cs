@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
 namespace Task_TMajdan.Utility
 {
-    public class ExtentReport
+    internal class ExtentReport
     {
         public static ExtentReports? _extentReports;
         public static ExtentTest? _feature;

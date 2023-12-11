@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using Task_TMajadan.Common.Driver;
 using Task_TMajadan.SeleniumFramework.Support;
 using Task_TMajdan.SeleniumFramework.Support.Enums;
 
@@ -8,14 +9,12 @@ namespace Task_TMajdan.SeleniumFramework.Support
 {
     internal static class ActionsUtils
     {
-        private const int DefaultWaitTimeout = 5;
-
         public static void ClickElement(IWebElement element)
         {
             element.Click();
         }
 
-        public static void SendKeys(this IWebDriver driver, IWebElement inputElement, string value, int waitTimeout = DefaultWaitTimeout)
+        public static void SendKeys(this IWebDriver driver, IWebElement inputElement, string value, int waitTimeout = Timeouts.MediumTimeout)
         {
             ClearInputValue(inputElement);
             inputElement.SendKeys(value);
@@ -78,7 +77,7 @@ namespace Task_TMajdan.SeleniumFramework.Support
             By dropdownSelector = By.XPath("//div[contains(@id, '-popup')]");
             By listItemSelector = By.XPath(".//div[contains(@class, 'option-cell')]");
 
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Timeouts.MediumTimeout));
             var dropdown = wait.Until(ExpectedConditions.ElementIsVisible(dropdownSelector));
             var listItems = dropdown.FindElements(listItemSelector);
 
@@ -108,7 +107,7 @@ namespace Task_TMajdan.SeleniumFramework.Support
 
         public static void CheckForTextInTable(IWebDriver driver, string searchText)
         {
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Timeouts.MediumTimeout));
 
             IWebElement tableBody = wait.Until(ExpectedConditions.ElementExists(By.XPath("//tbody")));
             IList<IWebElement> rows = tableBody.FindElements(By.TagName("tr"));
@@ -136,7 +135,7 @@ namespace Task_TMajdan.SeleniumFramework.Support
 
         public static List<IWebElement> FindSearchableListByText(IWebDriver driver, IWebElement parentElement, string searchText, bool throwException = true)
         {
-            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(Timeouts.LongTimeout));
             List<IWebElement>? elements = null;
 
             try

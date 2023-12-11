@@ -9,7 +9,6 @@ namespace Task_TMajadan.PageObjects
     {
         private readonly By _activityLogTableRows = By.XPath("//tr[contains(@class, 'listViewRow')]");
         private readonly By _activityLogActionButton = By.XPath("//button[contains(@id, 'ActionButtonHead')]");
-        private readonly By _inputCheckbox = By.XPath("//input[@type='checkbox']");
 
         private List<List<string>> _tableDataBeforeAction;
 

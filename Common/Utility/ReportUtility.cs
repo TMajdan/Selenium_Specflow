@@ -16,50 +16,28 @@ namespace Task_TMajdan.Utility
 
             var driver = _container.Resolve<IWebDriver>();
 
-            if (scenarioContext.TestError == null)
-            {
-                if (stepType == "Given")
-                {
-                    _scenario.CreateNode<Given>(stepName);
-                }
-                else if (stepType == "When")
-                {
-                    _scenario.CreateNode<When>(stepName);
-                }
-                else if (stepType == "Then")
-                {
-                    _scenario.CreateNode<Then>(stepName);
-                }
-                else if (stepType == "And")
-                {
-                    _scenario.CreateNode<And>(stepName);
-                }
-            }
+            var node = scenarioContext.TestError == null
+                ? CreateNode(_scenario, stepType, stepName)
+                : CreateNodeWithFailure(_scenario, stepType, stepName, driver, scenarioContext);
+        }
 
-            if (scenarioContext.TestError != null)
+        private static ExtentTest CreateNode(ExtentTest scenario, string stepType, string stepName)
+        {
+            return stepType switch
             {
+                "Given" => scenario.CreateNode<Given>(stepName),
+                "When" => scenario.CreateNode<When>(stepName),
+                "Then" => scenario.CreateNode<Then>(stepName),
+                "And" => scenario.CreateNode<And>(stepName),
+                _ => throw new ArgumentOutOfRangeException(nameof(stepType), $"Step type '{stepType}' is not recognized."),
+            };
+        }
 
-                if (stepType == "Given")
-                {
-                    _scenario.CreateNode<Given>(stepName).Fail(scenarioContext.TestError.Message,
-                        MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(driver, scenarioContext)).Build());
-                }
-                else if (stepType == "When")
-                {
-                    _scenario.CreateNode<When>(stepName).Fail(scenarioContext.TestError.Message,
-                        MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(driver, scenarioContext)).Build());
-                }
-                else if (stepType == "Then")
-                {
-                    _scenario.CreateNode<Then>(stepName).Fail(scenarioContext.TestError.Message,
-                        MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(driver, scenarioContext)).Build());
-                }
-                else if (stepType == "And")
-                {
-                    _scenario.CreateNode<And>(stepName).Fail(scenarioContext.TestError.Message,
-                        MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(driver, scenarioContext)).Build());
-                }
-            }
+        private static ExtentTest CreateNodeWithFailure(ExtentTest scenario, string stepType, string stepName, IWebDriver driver, ScenarioContext scenarioContext)
+        {
+            return CreateNode(scenario, stepType, stepName)
+                .Fail(scenarioContext.TestError.Message,
+                    MediaEntityBuilder.CreateScreenCaptureFromPath(addScreenshot(driver, scenarioContext)).Build());
         }
     }
 }

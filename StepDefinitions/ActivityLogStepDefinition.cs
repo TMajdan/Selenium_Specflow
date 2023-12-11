@@ -17,7 +17,7 @@ namespace Task_TMajadan.StepDefinitions
             _activityLogPage = new ActivityLogPage(_driver);
         }
 
-        [When(@"User selects '(.*)' rows in the Activity Log table")]
+        [Then(@"User selects '(.*)' rows in the Activity Log table")]
         public void WhenUserSelectsRowsInTheActiviyLogTable(int rowsCount)
         {
             _activityLogPage.SelectCheckboxesInTableRows(rowsCount, true);
