@@ -72,7 +72,7 @@ namespace Task_TMajdan.Src.PageObjects.ContactsPage
 
         public void SetBusinessRole(UserData user)
         {
-            ActionsUtils.SelectOptionFromListPopup(_driver, BusinessDropdown, user.Role);
+            ActionsUtils.SelectOptionFromListPopup(_driver, BusinessDropdown, user.Role.ToString());
         }
 
     }

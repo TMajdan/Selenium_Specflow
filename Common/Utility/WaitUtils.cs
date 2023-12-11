@@ -17,6 +17,7 @@ namespace Task_TMajdan.SeleniumFramework
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.Id("ajaxStatusDiv")));
         }
+
         public static void WaitForElementToBeVisible(IWebDriver driver, By locator)
         {
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));

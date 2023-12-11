@@ -35,7 +35,6 @@ namespace Task_TMajdan.Src.PageObjects.ContactsPage
                 AssertionsUtils.AssertIsElementContains(summarySectionContain, category.ToString());
             }
         }
-
         public void VerifyBusinessRoleSection(UserData user)
         {
             AssertionsUtils.AssertIsElementDisplayed(BusinessRoleSection);

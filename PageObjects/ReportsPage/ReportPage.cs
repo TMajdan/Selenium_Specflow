@@ -9,7 +9,7 @@ namespace Task_TMajadan.PageObjects.ReportsPage
     {
         private readonly By _runReportButton = By.XPath("//button[@type='submit']//span[text()='Run Report']");
         private IWebElement RunReportButton => _driver.FindElement(By.XPath("//button[@type='submit']//span[text()='Run Report']"));
-    
+
         public ReportPage(IWebDriver driver) : base(driver)
         {
         }
@@ -19,5 +19,6 @@ namespace Task_TMajadan.PageObjects.ReportsPage
             WaitUtils.WaitForElementToBeVisible(_driver, _runReportButton);
             ActionsUtils.ClickElement(RunReportButton);
         }
+
     }
 }

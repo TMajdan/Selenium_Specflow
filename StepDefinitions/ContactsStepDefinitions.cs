@@ -29,7 +29,7 @@ namespace Task_TMajadan.StepDefinitions
             _scenarioContext.Add("user", user);
         }
 
-        [When(@"User enters new random contact details")]
+        [Then(@"User enters new random contact details")]
         public void WhenUserEntersNewContactDetails()
         {
             _contactsFormPage = new ContactFormPage(_driver);

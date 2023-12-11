@@ -63,7 +63,6 @@ namespace Task_TMajdan.SeleniumFramework
             {
                 ObjectExtensions.IgnoringFailure(action, exceptionTypes);
             }
-
         }
 
         public static IWebDriver? GetDriver()

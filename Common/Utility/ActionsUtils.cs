@@ -27,17 +27,12 @@ namespace Task_TMajdan.SeleniumFramework.Support
             inputElement.Clear();
         }
 
-        public static void SelectCheckbox(IWebElement checkboxElement)
+        public static void SetCheckboxStatus(IWebElement checkbox, bool markUnmark)
         {
-            if (!GetCheckboxStatus(checkboxElement))
+            if ((markUnmark && !checkbox.Selected) || (!markUnmark && checkbox.Selected))
             {
-                ClickElement(checkboxElement);
+                ClickElement(checkbox);
             }
-        }
-
-        public static bool GetCheckboxStatus(IWebElement checkboxElement)
-        {
-            return checkboxElement.Selected;
         }
 
         public static void SelectOptionsFromSearchListPopup(IWebDriver driver, IWebElement searchInput, List<Category> values)
@@ -62,9 +57,9 @@ namespace Task_TMajdan.SeleniumFramework.Support
             WaitUtils.WaitForElementToBeInvisible(driver, popupSearchLocation);
         }
 
-        public static void SelectOptionFromListPopup(IWebDriver driver, IWebElement element, Role value)
+        public static void SelectOptionFromListPopup(IWebDriver driver, IWebElement element, string value)
         {
-            SelectElementFromPopupList(driver, element, value.ToString());
+            SelectElementFromPopupList(driver, element, value);
         }
 
         public static void SelectElementSearchablePopupFromList(IWebDriver driver, IWebElement searchInput, string value)
@@ -79,24 +74,35 @@ namespace Task_TMajdan.SeleniumFramework.Support
         public static void SelectElementFromPopupList(IWebDriver driver, IWebElement searchInput, string value)
         {
             ClickElement(searchInput);
-            By dropdownSelector = By.Id("DetailFormbusiness_role-input-popup");
+
+            By dropdownSelector = By.XPath("//div[contains(@id, '-popup')]");
             By listItemSelector = By.XPath(".//div[contains(@class, 'option-cell')]");
 
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
             var dropdown = wait.Until(ExpectedConditions.ElementIsVisible(dropdownSelector));
             var listItems = dropdown.FindElements(listItemSelector);
 
-            List<IWebElement> matchingItems = listItems
-                .Where(item => item.Text == value.ToString())
-                .ToList();
+            var matchingItem = listItems.FirstOrDefault(item => item.Text == value);
 
-            if (matchingItems.Count > 0)
+            if (matchingItem != null)
             {
-                ClickElement(matchingItems.First());
+                ClickElement(matchingItem);
+                HandleBrowserAlertIfPresent(driver);
             }
             else
             {
                 throw new NoSuchElementException($"Element with value '{value}' not found in the list.");
+            }
+        }
+        private static void HandleBrowserAlertIfPresent(IWebDriver driver)
+        {
+            try
+            {
+                driver.SwitchTo().Alert().Accept();
+            }
+            catch (NoAlertPresentException)
+            {
+                // Alert not present
             }
         }
 

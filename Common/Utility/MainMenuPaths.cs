@@ -13,5 +13,4 @@ namespace Task_TMajdan.SeleniumFramework
             SubmenuTab = submenuTab;
         }
     }
-
 }

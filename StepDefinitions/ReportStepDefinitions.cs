@@ -19,7 +19,6 @@ namespace Task_TMajadan.StepDefinitions
             _driver = driver;
             _scenarioContext = scenarioContext;
             _reportsPage = new ReportsPage(_driver);
-            _reportPage = new ReportPage(_driver);
         }
 
         [When(@"User Search '(.*)' report and open it")]
@@ -31,10 +30,11 @@ namespace Task_TMajadan.StepDefinitions
         [When(@"User run report")]
         public void WhenUserRunReport()
         {
+            _reportPage = new ReportPage(_driver);
             _reportPage.RunReport();
         }
 
-        [When(@"User Verify that report contains table with rows/columns and and text '(.*)'")]
+        [Then(@"User Verify that report contains table with rows/columns and and text '(.*)'")]
         public void WhenVerifyThatReportContainsTableWithRowsColumnsAndAndText(string columnNameItemText)
         {
             _reportsPage.VerifyReportData(columnNameItemText);
