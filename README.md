@@ -32,7 +32,7 @@ After the completion of tests, a report is generated under the `/TestResults` di
 
 ## Getting Started
 
-1. Clone the repository: `git clone https://github.com/TMajdan/Task_TMajdan.git`
+1. Clone the repository: `git clone https://github.com/TMajdan/Selenium_Specflow.git`
 2. Configure test data in `appsettings.json` if needed.
 3. Run tests using your preferred test runner.
 
