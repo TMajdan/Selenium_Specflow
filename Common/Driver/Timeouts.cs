@@ -1,4 +1,4 @@
-namespace Task_TMajadan.Common.Driver
+namespace Task_TMajdan.Common.Driver
 {
     internal class Timeouts
     {

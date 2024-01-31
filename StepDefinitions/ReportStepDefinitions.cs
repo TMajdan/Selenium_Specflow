@@ -1,10 +1,8 @@
 using AventStack.ExtentReports.Gherkin.Model;
 using OpenQA.Selenium;
-using Task_TMajadan.PageObjects.ReportsPage;
-using Task_TMajdan.Src.DomainModels.Accounts;
-using Task_TMajdan.Src.DomainModels.Users;
+using Task_TMajdan.PageObjects.ReportsPage;
 
-namespace Task_TMajadan.StepDefinitions
+namespace Task_TMajdan.StepDefinitions
 {
     [Binding]
     internal class ReportStepDefinitions

@@ -1,7 +1,8 @@
+using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
-using Task_TMajadan.Common.Driver;
+using Task_TMajdan.Common.Driver;
 
 namespace Task_TMajdan.SeleniumFramework
 {

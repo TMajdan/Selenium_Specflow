@@ -1,7 +1,7 @@
 using OpenQA.Selenium;
-using Task_TMajadan.PageObjects;
+using Task_TMajdan.PageObjects;
 
-namespace Task_TMajadan.StepDefinitions
+namespace Task_TMajdan.StepDefinitions
 {
     [Binding]
     internal class ActivityLogStepDefinition

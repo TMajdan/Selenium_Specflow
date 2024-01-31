@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports.Reporter.Configuration;

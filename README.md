@@ -28,9 +28,11 @@ Scenario: Scenario 1 - create contact
 
 After the completion of tests, a report is generated under the `/TestResults` directory. In case any test fails, a detailed report containing a screenshot of the step where the error occurred is created.
 
+![msedge_wJHp2Bf22A](https://github.com/TMajdan/Task_TMajdan/assets/18539842/f8b0b8f9-014f-4688-8173-1985b235ff3a)
+
 ## Getting Started
 
-1. Clone the repository: `git clone https://github.com/TMajdan/Task_TMajdan.git`
+1. Clone the repository: `git clone https://github.com/TMajdan/Selenium_Specflow.git`
 2. Configure test data in `appsettings.json` if needed.
 3. Run tests using your preferred test runner.
 

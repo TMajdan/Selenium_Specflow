@@ -3,7 +3,7 @@ using Task_TMajdan.SeleniumFramework;
 using Task_TMajdan.SeleniumFramework.Support;
 using Task_TMajdan.Src.PageObjects;
 
-namespace Task_TMajadan.PageObjects.ReportsPage
+namespace Task_TMajdan.PageObjects.ReportsPage
 {
     internal class ReportPage : AbstractBasePage
     {
