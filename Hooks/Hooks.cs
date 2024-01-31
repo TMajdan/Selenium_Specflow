@@ -1,9 +1,11 @@
 ﻿using AventStack.ExtentReports.Gherkin.Model;
 using BoDi;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using Task_TMajdan.SeleniumFramework;
 using Task_TMajdan.Src.Delivery;
 using Task_TMajdan.Utility;
+[assembly:Parallelizable(ParallelScope.Fixtures)]
 
 namespace Task_TMajdan.Hooks
 {
